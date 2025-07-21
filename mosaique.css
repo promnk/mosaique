@@ -15,19 +15,29 @@
   position: absolute !important;
 }
 
-/* ✅ Gauss Blur Lösung für Notion Cover */
+/* ✅ Blur-Layer für Cover-Bild (kombinierte Lösung) */
 .notion-header__cover.has-cover {
   position: relative !important;
-  z-index: 0;
+  z-index: 0 !important;
+  overflow: hidden !important;
 }
 
 .notion-header__cover.has-cover::after {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   backdrop-filter: blur(90px);
   -webkit-backdrop-filter: blur(90px);
-  z-index: 1;
+  pointer-events: none;
+}
+
+/* Optional: Inhalte über dem Blur sichtbar machen */
+.notion-header__content,
+.notion-header__title,
+.super-navbar {
+  position: relative;
+  z-index: 2;
 }
 
 .notion-pill,
