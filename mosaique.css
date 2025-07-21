@@ -13,7 +13,21 @@
   left: 0 !important;
   width: 100% !important;
   position: absolute !important;
-  filter: blur(90px) !important; /* ✅ Gaussian blur added */
+}
+
+/* ✅ Gauss Blur Lösung für Notion Cover */
+.notion-header__cover.has-cover {
+  position: relative !important;
+  z-index: 0;
+}
+
+.notion-header__cover.has-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(90px);
+  -webkit-backdrop-filter: blur(90px);
+  z-index: 1;
 }
 
 .notion-pill,
